@@ -1,0 +1,74 @@
+{
+  "HEADER": {
+    "Dashboard": "Armaturenbrett"
+  },
+  "SUPHOME": {
+    "Admins": "Admins"
+  },
+  "USER": {
+    "User": "Projekte"
+  },
+  "LAYOUT": {
+    "Logout": "Ausloggen"
+  },
+  "DROP_FILES": {
+    "Files": "Dateien",
+    "Categories": "Kategorien"
+  },
+  "UPLOAD_FILES": {
+    "Files": "Daten hochladen"
+  },
+  "COMMON": {
+    "Name": "Name",
+    "Email": "Email",
+    "Action": "Aktion",
+    "no_record": "Keine Aufzeichnungen gefunden",
+    "Cancel": "Abbruch",
+    "Add": "Hinzufügen",
+    "Save": "Speichern",
+    "Password": "Passwort",
+    "Status": "Status",
+    "User_status": "Benutzerstatus",
+    "project_status": "Projekt-Status",
+    "Description": "Beschreibung",
+    "Title": "Titel",
+    "Active": "Aktiv",
+    "Disabled": "Deaktiviert",
+    "No": "Nein",
+    "Yes": "Ja"
+  },
+  "CATEGORIES": {
+    "Categories": "Kategorien"
+  },
+  "SUPER_ADMIN": {
+    "Manage_User": "Projekt verwalten",
+    "Categories": "Kategorien"
+  },
+  "ADMIN": {
+    "Users": "Projekte"
+  },
+  "CLIENT": {
+    "files": "Kategorien"
+  },
+  "TOOLTIP": {
+    "Delete_file": "Verwijder bestand"
+  },
+  "DELETE_MESSAGE": {
+    "Message": "Bist du dir sicher?"
+  },
+  "Previous_Image": "Vorheriges Bild",
+  "View_Image": "Bild ansehen",
+  "select_file": "Bitte wählen Sie Datei",
+  "upload_file": "Datei erfolgreich hochgeladen",
+  "error_msg": "Ein Fehler ist aufgetreten.Bitte versuche es erneut",
+  "delete_file": "Datei erfolgreich gelöscht",
+  "cate_create": "Kategorie erfolgreich erstellt",
+  "cate_update": "Kategorie erfolgreich erstellt",
+  "client_create": "Der Kunde wurde hinzugefügt",
+  "client_update": "Klant wurde Update",
+  "admin_create": "Admin wurde hinzugefügt",
+  "admin_update": "Admin wurde hinzugefügt",
+  "view": "Ansicht",
+  "delete": "Löschen",
+  "more": "Mehr"
+}

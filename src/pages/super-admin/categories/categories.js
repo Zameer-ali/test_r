@@ -1,0 +1,153 @@
+import React, { useState, useEffect } from "react";
+import {
+  Box,
+  Button,
+  Chip,
+  CircularProgress,
+  Container,
+  Grid,
+  IconButton,
+  TableCell,
+  TableRow,
+  Typography,
+  Stack,
+  Tooltip,
+} from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+
+import PageTitle from "../../../hooks/page-title";
+import { TableWrapper, UsePagination } from "../../../components";
+import API from "../../../axios";
+import CatForm from "./cat-form";
+import { useTranslation } from "react-i18next";
+
+export default function SupCategories() {
+  const { t } = useTranslation();
+  PageTitle(t("CATEGORIES.Categories"));
+  const [showForm, setShowForm] = useState(false);
+  const [singleRecord, setSingleRecord] = useState(null);
+  const [record, setRecord] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const toggleForm = () => setShowForm(!showForm);
+
+  useEffect(() => {
+    getRecord();
+  }, []);
+
+  const getRecord = async () => {
+    setIsLoading(true);
+    try {
+      let { data } = await API("get", `superadmin/categories?page=${page}`);
+      setRecord(data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+    }
+  };
+
+  const updateRecord = (item) => {
+    setSingleRecord(item);
+    setShowForm(true);
+  };
+
+  const addRecord = () => {
+    if (!!singleRecord) {
+      setSingleRecord(null);
+    }
+    toggleForm();
+  };
+
+  return (
+    <Container maxWidth="false" sx={{ pt: 3, pb: 3 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Typography component="h6" variant="h6">
+              {t("CATEGORIES.Categories")}{" "}
+            </Typography>
+            <Button onClick={addRecord} variant="contained">
+              {!showForm ? t("COMMON.Add") : t("COMMON.Cancel")}
+            </Button>
+          </Stack>
+        </Grid>
+        {showForm && (
+          <Grid item xs={12}>
+            <CatForm
+              item={singleRecord}
+              afterSubmit={() => {
+                getRecord();
+                toggleForm();
+              }}
+            />
+          </Grid>
+        )}
+        {!showForm && (
+          <Grid item xs={12} sx={{ overflow: "auto" }}>
+            <TableWrapper
+              thContent={
+                <TableRow>
+                  <TableCell sx={{ color: "#fff" }}>
+                    {t("COMMON.Name")}
+                  </TableCell>
+                  <TableCell sx={{ color: "#fff" }}>
+                    {t("COMMON.Description")}
+                  </TableCell>
+                  <TableCell sx={{ color: "#fff" }}>
+                    {t("COMMON.Status")}
+                  </TableCell>
+                  <TableCell sx={{ color: "#fff" }}>
+                    {t("COMMON.Action")}
+                  </TableCell>
+                </TableRow>
+              }
+              spanTd={4}
+              isLoading={isLoading}
+              isContent={record?.data.length}
+            >
+              {record?.data.map((v, i) => (
+                <TableRow key={i}>
+                  <TableCell>{v.title}</TableCell>
+                  <TableCell>{v.description}</TableCell>
+                  <TableCell>
+                    {v.active ? (
+                      <Chip label={t("COMMON.Active")} color="primary" />
+                    ) : (
+                      <Chip label={t("COMMON.Disabled")} />
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <Tooltip title="Edit">
+                      <IconButton
+                        onClick={() => updateRecord(v)}
+                        color="primary"
+                      >
+                        <EditIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableWrapper>
+          </Grid>
+        )}
+        <Grid item xs={12}>
+          {!!record && record?.last_page > 1 && (
+            <Box component="div" sx={{ mt: 2 }}>
+              <UsePagination
+                total={record?.total}
+                perPage={record?.per_page}
+                page={page}
+                setPage={setPage}
+              />
+            </Box>
+          )}
+        </Grid>
+      </Grid>
+    </Container>
+  );
+}

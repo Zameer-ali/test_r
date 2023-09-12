@@ -1,0 +1,74 @@
+{
+  "HEADER": {
+    "Dashboard": "Dashboard"
+  },
+  "SUPHOME": {
+    "Admins": "Admins"
+  },
+  "USER": {
+    "User": "Projects"
+  },
+  "LAYOUT": {
+    "Logout": "Logout"
+  },
+  "DROP_FILES": {
+    "Files": "Files",
+    "Categories": "Categories"
+  },
+  "UPLOAD_FILES": {
+    "Files": "Upload Files"
+  },
+  "COMMON": {
+    "Name": "Name",
+    "Email": "Email",
+    "Action": "Action",
+    "no_record": "No Records Found",
+    "Cancel": "Cancel",
+    "Add": "Add",
+    "Save": "Save",
+    "Password": "Password",
+    "Status": "Status",
+    "User_status": "User Status",
+    "project_status": "Project Status",
+    "Description": "Description",
+    "Title": "Title",
+    "Active": "Active",
+    "Disabled": "Disabled",
+    "No": "No",
+    "Yes": "Yes"
+  },
+  "CATEGORIES": {
+    "Categories": "Categories"
+  },
+  "SUPER_ADMIN": {
+    "Manage_User": "Manage Project",
+    "Categories": "Categories"
+  },
+  "ADMIN": {
+    "Users": "Projects"
+  },
+  "CLIENT": {
+    "files": "Categories"
+  },
+  "TOOLTIP": {
+    "Delete_file": "Delete File"
+  },
+  "DELETE_MESSAGE": {
+    "Message": "Are you sure?"
+  },
+  "Previous_Image": "Previous Image",
+  "View_Image": "View Image",
+  "select_file": "Please select File",
+  "upload_file": "File uploaded successfully",
+  "error_msg": "Error Occurred. Please try again",
+  "delete_file": "File deleted successfully",
+  "cate_create": "Category created successfully",
+  "cate_update": "Category updated successfully",
+  "client_create": "Client was added",
+  "client_update": "Client was update",
+  "admin_create": "Admin was added",
+  "admin_update": "Admin was added",
+  "view": "View",
+  "delete": "Delete",
+  "more": "More"
+}
